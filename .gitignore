@@ -1,2 +1,5 @@
 .idea
 ex_mente_data
+*.csv
+*.ipynb
+DataAnalysis/__pycache__/
