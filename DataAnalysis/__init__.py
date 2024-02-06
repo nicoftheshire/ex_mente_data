@@ -1,1 +1,1 @@
-from app import DataAnalysis
+__all__ = ['app']
