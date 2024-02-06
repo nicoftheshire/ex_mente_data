@@ -1,2 +1,13 @@
 .idea
 ex_mente_data
+DataAnalysis/__pycache__/
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.gz
+*.csv
+*.ipynb
