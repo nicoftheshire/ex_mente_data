@@ -21,13 +21,16 @@ proper version control and documentaion practices.
 \section{Implementation}
 The \verb|DataAnalysis| package is designed to be deployed as a pip package,
 so that it can be downloaded and installed easily and publically. The package
-functions are contained in a class called \verb|DataAnalysis|, which is in the
-\verb|app.py| file. This is all in the \verb|DataAnalysis| directory, along
+functions are contained in the \verb|app| module, which is in the 
+\verb|DataAnalysis| directory, along
 with an \verb|__init__.py| file, which handles the imports for the package. In
 the base directory there is also a \verb|setup.py| file that handles all the
 functionality for the package being uploaded to PyPi.
 
 \section{Challenges}
+In the initial stages of the project, it was difficult to determine how the
+package should be structured. Once I realised that the existence of a class
+is unnecessary, the development process became simpler. 
 
 \section{Version Control}
 
