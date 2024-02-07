@@ -42,7 +42,11 @@ for the simple creation of child processes on the command line with the
 \section{Challenges}
 In the initial stages of the project, it was difficult to determine how the
 package should be structured. Once I realised that the existence of a class is
-unnecessary, the development process became simpler.
+unnecessary, the development process became simpler.\newline\newline
+Uploading the package to PyPi was also challenging, due to the specifications
+in the \verb|setup.py| file, and the additional packages required to upload to
+PyPi. The permissions process to upload to PyPi was also tedious, but after some
+research all of these challenges were resolved.
 
 \section{Version Control}
 For the version control, the development workflow was used. This method
@@ -60,7 +64,22 @@ caused almost no merge conflicts. In addition to the use of branches, tags were
 also used to keep track if the official versions of the software.
 
 \section{Data Analysis}
+For the basic data analysis, the functions werer implemented as specified,
+namely - a function that converts a Pandas DataFrame to a CSV file, a function
+that does the opposite, and a function that returns basic summary and
+descriptive statistics.\newline\newline
+In addition to that, two plot functions were created - one that simply plots
+a specified column against the date column, and one that plots the rolling 
+average and standard deviation in addition to the normal column data.\newline\newline
+It was difficult to determine what a useful plot would be for \emph{any} dataset,
+so I made the assumption that the data will be representing stock prices.
 
 \section{Conclusion}
+The biggest challenge of this project was learning the details of creating a
+Python package with proper practices, and uploading this package to PyPi. It was
+also interesting to learn of the \verb|subprocess| module, which has many useful
+functionalities. Working with data and doing some analysis is always
+interesting, and if I hade the time to improve the project, I would have liked
+to write some more technical functions with more advanced statistical methods.
 
 \end{document}
