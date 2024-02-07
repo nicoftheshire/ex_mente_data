@@ -1,6 +1,10 @@
 .idea
 ex_mente_data
 DataAnalysis/__pycache__/
+build
+dist
+ExMenteDataAnalysis.egg-info/
+ExMenteDataAnalysis/__pycache__/
 
 *.csv
 *.ipynb
