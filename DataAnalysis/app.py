@@ -3,9 +3,9 @@ This module implements the main data analysis and visualisation functionality.
 
 Author: Nicholas Holtzhausen
 """
-import pandas
 import pandas as pd
 import matplotlib as plt
+import subprocess
 
 
 def csv_to_df(file_loc):
@@ -90,5 +90,23 @@ def basic_analysis(df, col, df_type='cat'):
 	return result_data
 
 
+def rsync_copy(source_file, destination_dir):
+	"""
+	Copies a specified file to a specified directory using the rsync function.
+
+	Parameters
+	----------
+
+	source_file : str
+		String representing the path to the source file
+	destination_dir : str
+		String representing path to the destination directory
+	"""
+
+	try:
+		subprocess.run(['rsync', source_file, destination_dir], check=True)
+		print(f'{source_file} successfully copied to directory {destination_dir}')
+	except subprocess.CalledProcessError as e:
+		print(f'Error copying file {e}')
 
 

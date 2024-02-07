@@ -12,6 +12,6 @@ setup(
 	author_email='nholtzhausen54@gmail.com',
 	description=DESCRIPTION,
 	packages=find_packages,
-	install_requires=['pandas', 'matplotlib'],
+	install_requires=['pandas', 'matplotlib', 'subprocess'],
 	keywords=['python', 'data', 'analysis']
 )
