@@ -5,7 +5,7 @@ import os
 VERSION = '0.0.1'
 DESCRIPTION = 'Ex Mente Junior Developer Assignment'
 
-setup (
+setup(
 	name='DataAnalysis',
 	version=VERSION,
 	author='Nicholas Holtzhausen',

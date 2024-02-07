@@ -2,6 +2,8 @@
 ex_mente_data
 DataAnalysis/__pycache__/
 
+*.csv
+*.ipynb
 *.aux
 *.fdb_latexmk
 *.fls
@@ -9,5 +11,3 @@ DataAnalysis/__pycache__/
 *.out
 *.pdf
 *.gz
-*.csv
-*.ipynb
