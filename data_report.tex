@@ -16,23 +16,48 @@
 The purpose of this project is to assess the programming capabilities of a
 junior developer. The project entails creating a Python package with file
 operation and data analysis functionalities. The developer must also follow
-proper version control and documentaion practices.
+proper version control and documentation practices. This includes creating a
+package that can be installed and used easily, as well as writing meaningful
+functions that are well-documented and function properly. Proper branching
+techniques must also be used, and the developer must write clear and concise
+commit messages.
 
 \section{Implementation}
-The \verb|DataAnalysis| package is designed to be deployed as a pip package,
-so that it can be downloaded and installed easily and publically. The package
-functions are contained in the \verb|app| module, which is in the 
-\verb|DataAnalysis| directory, along
-with an \verb|__init__.py| file, which handles the imports for the package. In
-the base directory there is also a \verb|setup.py| file that handles all the
-functionality for the package being uploaded to PyPi.
+The \verb|DataAnalysis| package is designed to be deployed as a pip package, so
+that it can be downloaded and installed easily and publically. The package
+functions are contained in the \verb|app| module, which is in the
+\verb|DataAnalysis| directory, along with an \verb|__init__.py| file, which
+handles the imports for the package. In the base directory there is also a
+\verb|setup.py| file that handles all the functionality for the package being
+uploaded to PyPi.\newline\newline
+As mentioned before, the functions are all contained in the \verb|app| module,
+and can be called as follows: \verb|app.name_of_function(arg1, arg2)|, after
+importing the functions: \verb|from DataAnalysis import *|.\newline\newline
+Thanks to the simplicity of \verb|pandas|, file input and output can be
+implemented with ease, using functions such as \verb|pd.read_csv| and
+\verb|pd.to_csv|. The \verb|subprocess| library is also easy to use, and allows
+for the simple creation of child processes on the command line with the
+\verb|run()| function.
 
 \section{Challenges}
 In the initial stages of the project, it was difficult to determine how the
-package should be structured. Once I realised that the existence of a class
-is unnecessary, the development process became simpler. 
+package should be structured. Once I realised that the existence of a class is
+unnecessary, the development process became simpler.
 
 \section{Version Control}
+For the version control, the development workflow was used. This method
+stipulates that changes to the codebase should only be made on the development
+branch, or on branches that originated from the development branch, such as a
+\verb|bug_fix| branch. The development branch is only merged into the main
+branch when there is a fully functional and complete version on the development
+branch that is ready for deployment.\newline\newline
+Other than the development branch, there is also a \verb|documentation| branch,
+which originates from the main branch and is exclusively for amendments to the
+source code of the report, the README, and any other
+documentation.\newline\newline
+This method allowed for a modularised approach when editing any source code, and
+caused almost no merge conflicts. In addition to the use of branches, tags were
+also used to keep track if the official versions of the software.
 
 \section{Data Analysis}
 
