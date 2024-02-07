@@ -3,9 +3,9 @@ This module implements the main data analysis and visualisation functionality.
 
 Author: Nicholas Holtzhausen
 """
-import pandas
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import subprocess
 
 
 def csv_to_df(file_loc):
@@ -64,6 +64,12 @@ def basic_analysis(df, col, df_type='cat'):
 		Options:
 			'cat' (default): a df with categorical columns
 			'num': a df with numerical columns
+
+	Returns
+	-------
+
+	result_data : dictionary
+		The statistics in a Python dictionary
 	"""
 
 	result_data = {}
@@ -90,5 +96,84 @@ def basic_analysis(df, col, df_type='cat'):
 	return result_data
 
 
+def plot_against_date(df, col):
+	"""
+	Takes a specified column from the given df and plots it against the date column.
+
+	Parameters
+	----------
+
+	df : pandas.DataFrame
+		The dataframe containing the data
+	col : str
+		The name of the column to be plotted
+
+	Returns
+	-------
+	plt : matplotlib.pyplot
+		The plot of the specified column against the date
+
+	"""
+
+	plt.figure(figsize=(12, 6))
+	plt.plot(df['Date'], df[col], label=col)
+	plt.title('Stock Price Over Time')
+	plt.xlabel('Date')
+	plt.ylabel(col)
+	plt.legend()
+
+	return plt
+
+
+def rolling_statistics(df, col, rolling_window):
+	"""
+	Returns a plot of the specified column, the rolling average and the rolling standard deviation
+	against the date.
+
+	Parameters
+	----------
+
+	df : pd.DataFrame
+		A pandas dataframe representing the data
+	col : str
+		The column for which the rolling statistics must be calculated
+	rolling_window : int
+		The size (in days) of the rolling window
+	"""
+
+	new_df = df
+	new_df['Rolling Mean'] = df[col].rolling(window=rolling_window).mean()
+	new_df['Rolling Std'] = df[col].rolling(window=rolling_window).std()
+
+	plt.figure(figsize=(12, 6))
+	plt.plot(df['Date'], df[col], label=col)
+	plt.plot(df['Date'], new_df['Rolling Mean'], label=f'Rolling Mean (window={rolling_window}')
+	plt.plot(df['Date'], new_df['Rolling Std'], label=f'Rolling Std (window={rolling_window}')
+	plt.title(f'Rolling Statistics of Column {col}')
+	plt.xlabel('Date')
+	plt.ylabel(col)
+	plt.legend()
+
+	return plt
+
+
+def rsync_copy(source_file, destination_dir):
+	"""
+	Copies a specified file to a specified directory using the rsync function.
+
+	Parameters
+	----------
+
+	source_file : str
+		String representing the path to the source file
+	destination_dir : str
+		String representing path to the destination directory
+	"""
+
+	try:
+		subprocess.run(['rsync', source_file, destination_dir], check=True)
+		print(f'{source_file} successfully copied to directory {destination_dir}')
+	except subprocess.CalledProcessError as e:
+		print(f'Error copying file {e}')
 
 
